@@ -4,11 +4,13 @@ Created on 2/03/2015
 @author: sjhunt 14216618
 '''
 
+from __future__ import print_function
+
 import sys, time
 from collections import defaultdict
 
 def loadwords():
-    f = open('words.txt', 'r')
+    f = open('../res/words.txt', 'r')
     allwords = f.read()
     f.close
     words = allwords.lower().split('\n')
@@ -40,8 +42,10 @@ for word in words:
     hkey = hash(''.join(sorted(word)))
     keys[hkey].append(word)     #loop invariant: all words processed so far have been added to a new/existing anagram class
 
-for k in sorted(keys, key=lambda k: len(keys[k]), reverse=True ):
-    print (keys[k])
+with open('../out/sorted.txt', 'w') as f:
+    for k in sorted(keys, key=lambda k: len(keys[k]), reverse=True ):
+        print (keys[k], file=f)
+        print (keys[k])
 
 endtime = time.time()
 print (endtime - starttime)
