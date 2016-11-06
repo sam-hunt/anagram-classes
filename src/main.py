@@ -41,7 +41,7 @@ for word in words:
     keys[hkey].append(word)     #loop invariant: all words processed so far have been added to a new/existing anagram class
 
 for k in sorted(keys, key=lambda k: len(keys[k]), reverse=True ):
-    print keys[k]
+    print (keys[k])
 
 endtime = time.time()
-print endtime - starttime
+print (endtime - starttime)
