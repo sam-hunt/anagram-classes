@@ -48,4 +48,4 @@ with open('../out/sorted.txt', 'w') as f:
         print (keys[k])
 
 endtime = time.time()
-print (endtime - starttime)
+print ('/nTime taken: ' + (endtime - starttime) + ' seconds')
